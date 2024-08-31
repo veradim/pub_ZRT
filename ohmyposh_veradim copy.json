@@ -7,7 +7,7 @@
         {
           "foreground": "#7eb8da",
           "style": "plain",
-          "template": "\u250f[<#ffffff>\ueb99</> {{ .UserName }} с <#ffffff>\uf108</> {{ .HostName }}]",
+          "template": "\u250f[<#ffffff>\ueb99</> Vadim с <#ffffff>\uf108</> {{ .HostName }}]",
           "type": "session"
         },
         {
@@ -31,7 +31,7 @@
         {
           "foreground": "#be9ddf",
           "style": "diamond",
-          "template": "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}ГБ]",
+          "template": "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
           "type": "sysinfo"
         },
         {
@@ -40,7 +40,7 @@
             "time_format": "Monday at 3:04:05 PM"
           },
           "style": "diamond",
-          "template": "[<#ffffff>\uf073</> {{ .CurrentDate | date \"Monday\" | replace \"Monday\" \"Понедельник\" | replace \"Tuesday\" \"Вторник\" | replace \"Wednesday\" \"Среда\" | replace \"Thursday\" \"Четверг\" | replace \"Friday\" \"Пятница\" | replace \"Saturday\" \"Суббота\" | replace \"Sunday\" \"Воскресенье\" | date \"02.01.2006 15:04:05\" }}]",
+          "template": "[<#ffffff>\uf073</> {{ .CurrentDate | date \"Monday 02.01.2006 15:04:05\" | replace \"Monday\" \"Понедельник\" | replace \"Tuesday\" \"Вторник\" | replace \"Wednesday\" \"Среда\" | replace \"Thursday\" \"Четверг\" | replace \"Friday\" \"Пятница\" | replace \"Saturday\" \"Суббота\" | replace \"Sunday\" \"Воскресенье\" }}]",
           "type": "time"
         },
         {
