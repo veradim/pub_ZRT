@@ -5,42 +5,78 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#00ffcc",
-          "background": "#44475a",
+          "foreground": "#7eb8da",
           "style": "plain",
-          "template": "\u250f[\u2388 <#ffffff>\ueb99</> {{ .UserName }} <#ff79c6>@</> <#ffffff>\uf108</> {{ .HostName }}]",
+          "template": "\u250f[<#ffffff>\ueb99</> {{ .UserName }} с <#ffffff>\uf108</> {{ .HostName }}]",
           "type": "session"
         },
         {
-          "foreground": "#f1fa8c",
-          "background": "#44475a",
-          "style": "plain",
-          "template": "[⏳ <#ffffff>{{ .FormattedMs }}s</>]",
+          "foreground": "#be9ddf",
+          "properties": {
+            "style": "dallas",
+            "threshold": 0
+          },
+          "style": "diamond",
+          "template": "[<#ffffff>\uf252</> {{ .FormattedMs }}с]",
           "type": "executiontime"
         },
         {
-          "foreground": "#50fa7b",
-          "background": "#44475a",
-          "style": "plain",
-          "template": "[💻 <#ffffff>{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB RAM</>]",
+          "properties": {
+            "root_icon": "\uf292"
+          },
+          "style": "diamond",
+          "template": "\uf0e7",
+          "type": "root"
+        },
+        {
+          "foreground": "#be9ddf",
+          "style": "diamond",
+          "template": "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}ГБ]",
           "type": "sysinfo"
         },
         {
-          "foreground": "#ff79c6",
-          "background": "#44475a",
+          "foreground": "#7eb8da",
           "properties": {
             "time_format": "Monday at 3:04:05 PM"
           },
-          "style": "plain",
-          "template": "[📅 <#ffffff>{{ .CurrentDate | date .Format }}</>]",
+          "style": "diamond",
+          "template": "[<#ffffff>\uf073</> {{ .CurrentDate | date \"Monday\" | replace \"Monday\" \"Понедельник\" | replace \"Tuesday\" \"Вторник\" | replace \"Wednesday\" \"Среда\" | replace \"Thursday\" \"Четверг\" | replace \"Friday\" \"Пятница\" | replace \"Saturday\" \"Суббота\" | replace \"Sunday\" \"Воскресенье\" | date \"02.01.2006 15:04:05\" }}]",
           "type": "time"
         },
         {
-          "foreground": "#bd93f9",
-          "background": "#44475a",
+          "foreground": "#ffa5d8",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
           "style": "plain",
-          "template": "[\uf292]",
+          "template": "[<#ffffff>{{ .UpstreamIcon }}</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\ueb4b</> {{ .StashCount }}{{ end }}]",
+          "type": "git"
+        },
+        {
+          "foreground": "#ffa5d8",
+          "style": "plain",
+          "template": "[{{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}]",
+          "type": "aws"
+        },
+        {
+          "foreground": "#ffa5d8",
+          "style": "plain",
+          "template": "[{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}]",
+          "type": "kubectl"
+        },
+        {
+          "foreground": "#ffa5d8",
+          "style": "plain",
+          "template": "[\uf0e7]",
           "type": "root"
+        },
+        {
+          "foreground": "#ffa5d8",
+          "style": "powerline",
+          "template": "[<#ffffff>\uea6c</> Ошибка, проверьте команду]",
+          "type": "status"
         }
       ],
       "type": "prompt"
@@ -50,13 +86,12 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#8be9fd",
-          "background": "#282a36",
+          "foreground": "#7eb8da",
           "properties": {
             "style": "full"
           },
           "style": "plain",
-          "template": "\u2516[\uf07c <#ffffff>{{ .Path }}</>]",
+          "template": "\u2516[<#98bfad>{{ .Path }}</>]",
           "type": "path"
         }
       ],
@@ -67,10 +102,9 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#bd93f9",
-          "background": "#282a36",
+          "foreground": "#7eb8da",
           "style": "plain",
-          "template": "\u2514\u2500🔻",
+          "template": "\u2514\u2500Δ",
           "type": "text"
         }
       ],
