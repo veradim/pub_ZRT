@@ -37,7 +37,7 @@
         {
           "foreground": "#be9ddf",
           "style": "diamond",
-          "template": "[<#ffffff>\ue266</> CPU: {{ .CPUPercentage }}%]",
+          "template": "[<#ffffff>\ue266</> CPU: {{ .CPUPerc }}%]",
           "type": "sysinfo"
         },
         {
