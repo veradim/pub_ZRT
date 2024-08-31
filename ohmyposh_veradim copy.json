@@ -35,12 +35,18 @@
           "type": "sysinfo"
         },
         {
+          "foreground": "#be9ddf",
+          "style": "diamond",
+          "template": "[<#ffffff>\ue266</> CPU: {{ .CPUPercentage }}%]",
+          "type": "sysinfo"
+        },
+        {
           "foreground": "#7eb8da",
           "properties": {
-            "time_format": "Monday at 3:04:05 PM"
+            "time_format": "02.01.2006 15:04:05"
           },
           "style": "diamond",
-          "template": "[<#ffffff>\uf073</> {{ .CurrentDate | date \"Monday 02.01.2006 15:04:05\" | replace \"Monday\" \"Понедельник\" | replace \"Tuesday\" \"Вторник\" | replace \"Wednesday\" \"Среда\" | replace \"Thursday\" \"Четверг\" | replace \"Friday\" \"Пятница\" | replace \"Saturday\" \"Суббота\" | replace \"Sunday\" \"Воскресенье\" }}]",
+          "template": "[<#ffffff>\uf073</> {{ .CurrentDate | date .Format | replace \"Monday\" \"Понедельник\" | replace \"Tuesday\" \"Вторник\" | replace \"Wednesday\" \"Среда\" | replace \"Thursday\" \"Четверг\" | replace \"Friday\" \"Пятница\" | replace \"Saturday\" \"Суббота\" | replace \"Sunday\" \"Воскресенье\" }}]",
           "type": "time"
         },
         {
